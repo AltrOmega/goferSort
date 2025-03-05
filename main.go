@@ -37,7 +37,7 @@ func argParse(args []string) (prog_name string, algorithm string, print_lvl int,
 
 
 func get_usage_str(prog_name string) string {
-  return fmt.Sprintf("%v <quickSort> [number from 0 to 10]", prog_name)
+  return fmt.Sprintf("%v <QuickSort | MergeSort> [number from 0 to 10]", prog_name)
 }
 
 
@@ -60,7 +60,7 @@ func main() {
     os.Exit(1)
   }
 
-  data := dataGen.GenerateRandomSlice(100, -1000, 1000)
+  data := dataGen.GenerateRandomSlice(10, -10, 10)
   
   // Todo: make it use print levels instead of bool
   do_print := false
@@ -71,7 +71,11 @@ func main() {
   switch strings.ToLower(algorithm) {
   case "quicksort":
     sort_start(algorithm, data)
-    algorithms.QuickSort(data, 0, len(data)-1, do_print)
+    data = algorithms.QuickSort(data, 0, len(data)-1, do_print)
+    sort_end(data)
+  case "mergesort":
+    sort_start(algorithm, data)
+    data = algorithms.MergeSort(data, do_print)
     sort_end(data)
   default:
     fmt.Println("Given algorithm does not exist")
