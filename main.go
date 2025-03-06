@@ -37,7 +37,7 @@ func argParse(args []string) (prog_name string, algorithm string, print_lvl int,
 
 
 func get_usage_str(prog_name string) string {
-  return fmt.Sprintf("%v <QuickSort | MergeSort> [number from 0 to 10]", prog_name)
+  return fmt.Sprintf("%v <QuickSort | MergeSort | BubbleSort> [number from 0 to 10]", prog_name)
 }
 
 
@@ -76,6 +76,10 @@ func main() {
   case "mergesort":
     sort_start(algorithm, data)
     data = algorithms.MergeSort(data, do_print)
+    sort_end(data)
+  case "bubblesort":
+    sort_start(algorithm, data)
+    data = algorithms.BubbleSort(data, do_print)
     sort_end(data)
   default:
     fmt.Println("Given algorithm does not exist")

@@ -59,7 +59,7 @@ func partition(data []int, start int, end int, print_lvl bool) int{
 
 
 
-// Todo: finish mergeSort
+
 func MergeSort(data []int, print_lvl bool) []int {
   if len(data) < 2{
     return data
@@ -103,4 +103,19 @@ func merge(left []int, right []int, print_lvl bool) []int {
   }
   return sorted
   
+}
+
+
+
+
+
+func BubbleSort(data []int, print_lvl bool) []int {
+  for i := 0; i < len(data); i++ {
+    for j := 0; j < len(data)-1-i; j++ {
+      if data[j] > data[j+1]{
+        swap(data, j, j+1, print_lvl)
+      }
+    }
+  }
+  return data
 }
