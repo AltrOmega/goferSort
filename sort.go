@@ -17,6 +17,7 @@ func main() {
   parser := argparse.NewParser("sort", "insert description here")
   
   bubble := parser.NewCommand("bubble", "bubble sort description")
+  insert := parser.NewCommand("insert", "insert sort description")
   merge := parser.NewCommand("merge", "merge sort description")
   quick := parser.NewCommand("quick", "quick sort description")
 
@@ -63,6 +64,8 @@ func main() {
 
   if bubble.Happened() {
     data = algorithms.BubbleSort(data, do_print)
+  }else if insert.Happened(){
+    data = algorithms.InsertSort(data, do_print)
   }else if merge.Happened(){
     data = algorithms.MergeSort(data, do_print)
   }else if quick.Happened(){
